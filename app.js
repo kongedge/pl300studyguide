@@ -7,7 +7,8 @@ fetch('questions.json')
     .then(data => {
         allQuestions = data.questions;
         viewController('dashboard');
-    });
+    })
+    .catch(err => console.error("Could not load questions:", err));
 
 function viewController(view) {
     const container = document.getElementById('main-content');
@@ -25,10 +26,11 @@ function renderStats() {
     }).join('');
 }
 
-function initQuiz() {
+// Added 'type' parameter to match your HTML button
+window.initQuiz = (type) => {
     currentIdx = 0;
     showQuestion();
-}
+};
 
 function showQuestion() {
     const q = allQuestions[currentIdx];
@@ -62,4 +64,9 @@ window.nextQuestion = () => {
     } else {
         viewController('dashboard');
     }
+};
+
+window.initFlashcards = () => {
+    const container = document.getElementById('main-content');
+    container.innerHTML = "<h3>Flashcards coming soon!</h3>"; 
 };
