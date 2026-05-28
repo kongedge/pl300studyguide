@@ -3,23 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PL-300 Mastery Tracker</title>
+    <title>PL-300 Mastery Engine</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div id="app">
         <header>
-            <h1>PL-300 Readiness Tracker</h1>
-            <nav>
-                <button onclick="viewController('dashboard')">Dashboard</button>
-                <button onclick="initQuiz('Full')">Practice Test</button>
-                <button onclick="initFlashcards()">Flashcards</button>
-            </nav>
+            <h1>PL-300 Study Suite</h1>
+            <div id="readiness-meter">Readiness: <span id="readiness-val">0%</span></div>
         </header>
 
-        <main id="view-container">
-            <!-- Dynamic Content Injected Here -->
-        </main>
+        <nav id="top-nav">
+            <button onclick="viewController('dashboard')">Dashboard</button>
+            <button onclick="viewController('quiz-menu')">Practice Tests</button>
+            <button onclick="initFlashcards()">Weak Area Flashcards</button>
+        </nav>
+
+        <main id="main-content">
+            </main>
     </div>
     <script src="app.js"></script>
 </body>
