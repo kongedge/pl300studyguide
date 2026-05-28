@@ -1,0 +1,45 @@
+name: Auto-Generate PL-300 Questions
+
+# This tells GitHub WHEN to run the action
+on:
+  schedule:
+    # Runs automatically every Monday at midnight UTC
+    - cron: '0 0 * * 1'
+  workflow_dispatch: 
+    # This magic line adds a "Run workflow" button so you can trigger it manually anytime!
+
+# This tells GitHub WHAT to do
+jobs:
+  generate-questions:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Checkout the repository code
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      # 2. Set up Python
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      # 3. Install the requests library
+      - name: Install Dependencies
+        run: pip install requests
+
+      # 4. Run the Python script (passing in your secure API key)
+      - name: Run Generation Script
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: python generate.py
+
+      # 5. Commit the new questions.json and push it back to the repository
+      - name: Commit and Push Changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action Bot"
+          git add questions.json
+          # Only commit if the file actually changed to avoid empty commit errors
+          git diff-index --quiet HEAD || git commit -m "Auto-update PL-300 questions bank"
+          git push
