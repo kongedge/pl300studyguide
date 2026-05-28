@@ -1,14 +1,14 @@
 name: Auto-Generate PL-300 Questions
 
-# This tells GitHub WHEN to run the action
 on:
   schedule:
-    # Runs automatically every Monday at midnight UTC
     - cron: '0 0 * * 1'
   workflow_dispatch: 
-    # This magic line adds a "Run workflow" button so you can trigger it manually anytime!
 
-# This tells GitHub WHAT to do
+# ADD THESE TWO LINES:
+permissions:
+  contents: write
+
 jobs:
   generate-questions:
     runs-on: ubuntu-latest
