@@ -2,8 +2,8 @@ name: Auto-Generate PL-300 Questions
 
 on:
   schedule:
-    - cron: '0 0 * * 1'
-  workflow_dispatch: 
+    - cron: '0 8 * * 1-5'
+  workflow_dispatch:
 
 # ADD THESE TWO LINES:
 permissions:
