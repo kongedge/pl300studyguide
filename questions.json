@@ -1,0 +1,22 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "domain": "Prepare the Data",
+      "topic": "Power Query",
+      "question": "Which M function should you use to cache an API result in memory to prevent multiple calls?",
+      "options": ["Table.Buffer", "Table.Cache", "Table.StopFolding", "Value.NativeQuery"],
+      "answer": "Table.Buffer",
+      "rationale": "Table.Buffer loads the table into memory, preventing the source from being re-queried by downstream steps."
+    },
+    {
+      "id": 2,
+      "domain": "Model the Data",
+      "topic": "DAX",
+      "question": "Which DAX function is required to change the filter context of a calculation?",
+      "options": ["FILTER", "CALCULATE", "ALL", "RELATED"],
+      "answer": "CALCULATE",
+      "rationale": "CALCULATE is the only function that can modify the filter context in a measure."
+    }
+  ]
+}
