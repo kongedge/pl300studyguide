@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PL-300 Mastery Tracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <header>
+            <h1>PL-300 Readiness Tracker</h1>
+            <nav>
+                <button onclick="router.navigate('dashboard')">Dashboard</button>
+                <button onclick="router.navigate('quiz')">New Quiz</button>
+                <button onclick="router.navigate('flashcards')">Flashcards</button>
+            </nav>
+        </header>
+
+        <main id="view-container">
+            <!-- Dynamic Content Injected Here -->
+        </main>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
