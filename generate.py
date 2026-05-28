@@ -8,7 +8,7 @@ URL = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash
 
 # 2. Define the exact prompt and JSON schema we want back
 prompt = """
-Generate 10 advanced PL-300 practice questions covering the exam domains. 
+Generate 50 advanced PL-300 practice questions covering the exam domains. 
 Do not use markdown formatting like ```json in the output. Return ONLY a raw, valid JSON object with the following exact schema:
 {
   "pl300_questions": [
